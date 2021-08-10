@@ -1,24 +1,24 @@
 import React, { Link } from "react";
 import { useState, useEffect } from "react";
 
-export const PeopleList = () => {
+export const PlanetList = () => {
 	const api = "https://www.swapi.tech/api";
-	const [pplArr, setPplArr] = useState([]);
+	const [planetArr, setPlanetArr] = useState([]);
 	useEffect(() => {
-		fetch(`${api}/people`)
+		fetch(`${api}/planets`)
 			.then(res => res.json())
-			.then(data => setPplArr(data.results));
+			.then(data => setPlanetArr(data.results));
 	}, []);
 	return (
 		<div className="row  list-row flex-row flex-nowrap" style={{ overflowY: "hidden", overflowX: "auto" }}>
-			{pplArr ? (
-				pplArr.map((person, i) => {
+			{planetArr ? (
+				planetArr.map((planet, i) => {
 					return (
 						<div key={i} className="col-3 ">
 							<div className="card">
-								<img src="https://via.placeholder.com/150x150/000000/FFFFFF/?text=People" alt="" />
-								<a href={"/people/" + person.uid}>
-									<p className="card-name">{person.name}</p>
+								<img src="https://via.placeholder.com/150x150/000000/FFFFFF/?text=Planet" alt="" />
+								<a href={"/planets/" + planet.uid}>
+									<p className="card-name">{planet.name}</p>
 									<p className="card-desc">
 										Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse convallis
 										nec dui at dictum. Sed mattis enim a nisl hendrerit iaculis. Pellentesque vel
