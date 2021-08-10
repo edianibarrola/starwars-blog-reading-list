@@ -23,11 +23,16 @@ img{
 .navbar{
    background:linear-gradient(-120deg, rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), url("https://res.cloudinary.com/petrep/image/upload/v1628612850/starwars/stars.png");
   background-size:cover;
-  height: 10vh;
+  height: 8vh;
 }
 .list-row{
     -ms-overflow-style: none;  /* IE and Edge */
   scrollbar-width: none;  /* Firefox */
     ::-webkit-scrollbar {
   display: none;}
+}
+.grey-title{
+    background:rgb(71, 71, 71);
+    color: #777777;
+    clip-path: polygon(1% 22%, 0 17%, 0 0, 100% 0, 100% 100%, 0 100%, 0 83%, 1% 76%);
 }

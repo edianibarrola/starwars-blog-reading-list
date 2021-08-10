@@ -26,27 +26,29 @@ const Layout = () => {
 				<ScrollToTop>
 					<Navbar />
 					<Switch>
-						<Route exact path="/">
-							<Home />
-						</Route>
-						<Route exact path="/people">
-							<PeopleList />
-						</Route>
-						<Route exact path="/people/:id">
-							<PeopleDetails />
-						</Route>
-						<Route exact path="/planets">
-							<PlanetList />
-						</Route>
-						<Route exact path="/planets/:id">
-							<PlanetDetails />
-						</Route>
-						<Route exact path="/demo">
-							<Demo />
-						</Route>
-						<Route exact path="/single/:theid">
-							<Single />
-						</Route>
+						<div className="container-flex mt-5">
+							<Route exact path="/">
+								<Home />
+							</Route>
+							<Route exact path="/people">
+								<PeopleList />
+							</Route>
+							<Route exact path="/people/:id">
+								<PeopleDetails />
+							</Route>
+							<Route exact path="/planets">
+								<PlanetList />
+							</Route>
+							<Route exact path="/planets/:id">
+								<PlanetDetails />
+							</Route>
+							<Route exact path="/demo">
+								<Demo />
+							</Route>
+							<Route exact path="/single/:theid">
+								<Single />
+							</Route>
+						</div>
 						<Route>
 							<h1>Not found!</h1>
 						</Route>
