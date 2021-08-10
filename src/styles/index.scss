@@ -7,7 +7,8 @@ body {
     background:linear-gradient(-120deg, rgba(46, 46, 46, 0.3), rgba(48, 48, 48, 0.3)), url("https://res.cloudinary.com/petrep/image/upload/v1628612850/starwars/stars.png");
   background-size:cover;
 }
-img{
+.list-img{
+    
     border-bottom: 2px solid #9e4f60;
 }
 .card-name{
@@ -32,7 +33,13 @@ img{
   display: none;}
 }
 .grey-title{
-    background:rgb(71, 71, 71);
-    color: #777777;
+    background:#2a2929;
+    color: #aaaaaa;
     clip-path: polygon(1% 22%, 0 17%, 0 0, 100% 0, 100% 100%, 0 100%, 0 83%, 1% 76%);
+}
+.rt{
+    color: #9e4f60;
+}
+.br{
+    border-right: 1px solid #dddddd;
 }

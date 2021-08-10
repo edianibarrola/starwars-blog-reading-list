@@ -1,9 +1,11 @@
 import React, { Link } from "react";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useContext } from "react";
+import { FavoritesContext } from "./favoritecontext";
 
 export const PeopleList = () => {
 	const api = "https://www.swapi.tech/api";
 	const [pplArr, setPplArr] = useState([]);
+	const fav = useContext(FavoritesContext);
 	useEffect(() => {
 		fetch(`${api}/people`)
 			.then(res => res.json())
@@ -16,7 +18,11 @@ export const PeopleList = () => {
 					return (
 						<div key={i} className="col-3 ">
 							<div className="card">
-								<img src="https://via.placeholder.com/150x150/000000/FFFFFF/?text=People" alt="" />
+								<img
+									className="list-img"
+									src="https://via.placeholder.com/150x150/000000/FFFFFF/?text=People"
+									alt=""
+								/>
 								<a href={"/people/" + person.uid}>
 									<p className="card-name">{person.name}</p>
 									<p className="card-desc">
@@ -25,6 +31,23 @@ export const PeopleList = () => {
 										aliquet massa.
 									</p>
 								</a>
+								<div className="col-12">
+									<button
+										style={{ background: "none", border: "none" }}
+										onClick={() => {
+											if (!fav.favArray.includes(person.name)) {
+												fav.setFavArray([...fav.favArray, person.name]);
+											} else if (fav.favArray.includes(person.name)) {
+												fav.setFavArray(fav.favArray.filter(item => item !== person.name));
+											}
+										}}>
+										{fav.favArray.includes(person.name) ? (
+											<i className="far fa-trash-alt" />
+										) : (
+											<i className="far fa-heart" />
+										)}
+									</button>
+								</div>
 							</div>
 						</div>
 					);

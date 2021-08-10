@@ -1,28 +1,28 @@
 import React, { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 
-export const PlanetDetails = () => {
+export const VehicleDetails = () => {
 	const api = "https://www.swapi.tech/api";
-	const [planetInfo, setplanetInfo] = useState([]);
+	const [vehicleInfo, setVehicleInfo] = useState([]);
 	let { id } = useParams();
 	useEffect(() => {
-		fetch(`${api}/planets/${id}`)
+		fetch(`${api}/vehicles/${id}`)
 			.then(res => res.json())
 			.then(data => {
-				setplanetInfo(data.result.properties);
+				setVehicleInfo(data.result.properties);
 			}),
-			[planetInfo];
+			[vehicleInfo];
 	});
 	return (
 		<div className="container " style={{ "margin-top": "9vh" }}>
 			<div className="card card-desc">
-				<div className="row d-flex-inline">
+				<div className="row d-flex-inline ">
 					<div className="col-12">
-						<h1 className="text-center">{planetInfo.name}</h1>
+						<h1 className="text-center">{vehicleInfo.name}</h1>
 					</div>
 					<div className="col-4">
 						<img
-							src="https://via.placeholder.com/150x150/000000/FFFFFF/?text=Planets"
+							src="https://via.placeholder.com/150x150/000000/FFFFFF/?text=Vehicles"
 							alt=""
 							style={{ width: "300px", imageFit: "contain" }}
 						/>
@@ -36,50 +36,54 @@ export const PlanetDetails = () => {
 				</div>
 				<div className="row d-flex m-2">
 					<div className="col br">
-						<div className="col card-desc">Population: </div>
+						<div className="col card-desc">Model: </div>
 
 						<div className="col card-desc">
-							{planetInfo ? <p className="rt">{planetInfo.population}</p> : <h1> ...loading </h1>}
+							{vehicleInfo ? <p className="rt">{vehicleInfo.model}</p> : <h1> ...loading </h1>}
 						</div>
 					</div>
 					<div className="col br">
-						<div className="col card-desc">Climate: </div>
+						<div className="col card-desc">Manufacturer: </div>
 						<div className="col card-desc">
-							{planetInfo ? <p className="rt">{planetInfo.climate}</p> : <h1> ...loading </h1>}
-						</div>
-					</div>
-
-					<div className="col br">
-						<div className="col card-desc">Terrain: </div>
-						<div className="col card-desc">
-							{planetInfo ? <p className="rt">{planetInfo.terrain}</p> : <h1> ...loading </h1>}
+							{vehicleInfo ? <p className="rt">{vehicleInfo.manufacturer}</p> : <h1> ...loading </h1>}
 						</div>
 					</div>
 
 					<div className="col br">
-						<div className="col card-desc">Rotation Period: </div>
+						<div className="col card-desc">Length: </div>
 						<div className="col card-desc">
-							{planetInfo ? <p className="rt">{planetInfo.rotation_period}</p> : <h1> ...loading </h1>}
+							{vehicleInfo ? <p className="rt">{vehicleInfo.length}</p> : <h1> ...loading </h1>}
 						</div>
 					</div>
 
 					<div className="col br">
-						<div className="col card-desc">Orbital Period: </div>
+						<div className="col card-desc">Crew: </div>
 						<div className="col card-desc">
-							{planetInfo ? <p className="rt">{planetInfo.orbital_period}</p> : <h1> ...loading </h1>}
+							{vehicleInfo ? <p className="rt">{vehicleInfo.crew}</p> : <h1> ...loading </h1>}
 						</div>
 					</div>
 
 					<div className="col br">
-						<div className="col card-desc">Gravity: </div>
+						<div className="col card-desc">Passengers: </div>
 						<div className="col card-desc">
-							{planetInfo ? <p className="rt">{planetInfo.gravity}</p> : <h1> ...loading </h1>}
+							{vehicleInfo ? <p className="rt">{vehicleInfo.passengers}</p> : <h1> ...loading </h1>}
 						</div>
 					</div>
-					<div className="col">
-						<div className="col card-desc">Diameter: </div>
+
+					<div className="col br">
+						<div className="col card-desc">Max Speed: </div>
 						<div className="col card-desc">
-							{planetInfo ? <p className="rt">{planetInfo.diameter}</p> : <h1> ...loading </h1>}
+							{vehicleInfo ? (
+								<p className="rt">{vehicleInfo.max_atmosphering_speed}</p>
+							) : (
+								<h1> ...loading </h1>
+							)}
+						</div>
+					</div>
+					<div className="col ">
+						<div className="col card-desc">Cost in credits: </div>
+						<div className="col card-desc">
+							{vehicleInfo ? <p className="rt">{vehicleInfo.cost_in_credits}</p> : <h1> ...loading </h1>}
 						</div>
 					</div>
 				</div>
